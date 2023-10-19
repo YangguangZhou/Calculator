@@ -1,25 +1,47 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
+    background-color: #f8f9fa;
 }
 
-h1 {
-    color: #333;
+.card {
+    max-width: 500px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"] {
-    padding: 5px;
-    margin: 5px;
+.card-header {
+    background-color: #279cff;
+    color: #fff;
+    border-bottom: none;
 }
 
-button {
-    padding: 8px 16px;
-    margin: 5px;
-    cursor: pointer;
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    font-size: 1.2em;
+}
+
+.btn-primary {
+    font-size: 1.2em;
 }
 
 #result {
+    font-size: 1.5em;
+    /* font-weight: bold; */
     margin-top: 10px;
-    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.instructions {
+    font-size: 1em;
 }

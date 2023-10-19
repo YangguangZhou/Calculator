@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>多功能计算器</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算器</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>多功能计算器</h1>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header text-center">
+        <h1>综合计算器</h1>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" class="form-control" id="expression" placeholder="输入表达式">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="calculate()">计算</button>
+        <div id="result" class="mt-3"></div>
+        <div class="mt-4">
+          <strong>使用说明：</strong>
+          <ul>
+            <li>加法: 使用 + 符号</li>
+            <li>减法: 使用 - 符号</li>
+            <li>乘法: 使用 * 符号</li>
+            <li>除法: 使用 / 符号</li>
+            <li>n次方: 使用 ^ 符号, 例如 2^3 表示2的3次方</li>
+            <li>n次方根: 使用 √ 符号, 例如 √9 表示9的平方根</li>
+            <li>对数: 使用 log(base,x) 格式, 例如 log(10,100) 表示以10为底的100的对数</li>
+            <li>进制转换: 使用 convert(fromBase,toBase,number) 格式, 例如 convert(10,2,10) 表示将十进制的10转换成二进制</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <input type="text" id="commandInput" placeholder="在这里输入命令">
-    <button id="executeButton">执行</button>
-
-    <div id="result"></div>
+  <script src="script.js"></script>
 </body>
 </html>

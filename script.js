@@ -1,32 +1,35 @@
-document.getElementById('executeButton').addEventListener('click', function() {
-    var command = document.getElementById('commandInput').value;
-    var resultDiv = document.getElementById('result');
+function calculate() {
+    var expression = document.getElementById('expression').value;
+    var OriginalExpression = expression;
+    var result;
+
+    // 处理convert函数
+    expression = expression.replace(/convert\((\d+),(\d+),(\d+)\)/g, function (match, fromBase, toBase, number) {
+        var decimalNumber = parseInt(number, parseInt(fromBase, 10));
+        return decimalNumber.toString(parseInt(toBase, 10));
+    });
+
+    // 处理数字，确保它们被当作十进制数字来处理
+    expression = expression.replace(/\b\d+\b/g, function (match) {
+        return parseInt(match, 10);
+    });
+
+    // 添加对n次方的处理
+    expression = expression.replace(/\^/g, '**');
+
+    // 添加对n次方根的处理
+    expression = expression.replace(/√(\d+)/g, 'Math.sqrt($1)');
+
+    // 添加对对数的处理
+    expression = expression.replace(/log\((\d+),(\d+)\)/g, 'Math.log($2) / Math.log($1)');
+
+    // 添加对进制转换的处理
+    expression = expression.replace(/convert\((\d+),(\d+),(\d+)\)/g, 'parseInt($3, $1).toString($2)');
 
     try {
-        var result;
-        if (command.includes('^')) {
-            // 包含指数操作
-            var parts = command.split('^');
-            result = power(parseFloat(parts[0]), parseFloat(parts[1]));
-        } else if (command.includes('√')) {
-            // 包含根号操作
-            var parts = command.split('√');
-            result = nthRoot(parseFloat(parts[0]), parseFloat(parts[1]));
-        } else if (command.includes('log')) {
-            // 包含对数操作
-            var parts = command.split(' ');
-            result = logarithm(parseFloat(parts[1]), parseFloat(parts[2]));
-        } else if (command.includes('factorize')) {
-            // 因式分解操作
-            var number = parseFloat(command.split(' ')[1]);
-            result = factorize(number).join(' * ');
-        } else {
-            // 默认按照算术表达式处理
-            result = eval(command);
-        }
-
-        resultDiv.innerHTML = '结果：' + result;
+        result = eval(expression);
+        document.getElementById('result').textContent = OriginalExpression + '=' + result;
     } catch (error) {
-        resultDiv.innerHTML = '输入无效';
+        document.getElementById('result').textContent = '错误: 无效的表达式';
     }
-});
+}
