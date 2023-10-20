@@ -18,10 +18,10 @@ function calculate() {
     expression = expression.replace(/\^/g, '**');
 
     // 添加对n次方根的处理
-    expression = expression.replace(/√(\d+)/g, 'Math.sqrt($1)');
+    expression = expression.replace(/sqrt\((\d+),(\d+)\)/g, 'Math.pow($1, 1/$2)');
 
     // 添加对对数的处理
-    expression = expression.replace(/log\((\d+),(\d+)\)/g, 'Math.log($2) / Math.log($1)');
+    expression = expression.replace(/log\((\d+),(\d+)\)/g, 'Math.log($1) / Math.log($2)');
 
     // 添加对进制转换的处理
     expression = expression.replace(/convert\((\d+),(\d+),(\d+)\)/g, 'parseInt($3, $1).toString($2)');
