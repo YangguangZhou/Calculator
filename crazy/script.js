@@ -6,7 +6,7 @@ function convertToChinese(num) {
   const chineseNum = ['一', '二', '三', '四', '五', '六', '七', '八', '九'];
   
   // Check if num is within 1-9
-  if(num >= 1 && num <= 9) {
+  if(num >= 1 && num <= 9 && isNumber(num) ) {
     return chineseNum[num - 1];
   } else {
     return num;
