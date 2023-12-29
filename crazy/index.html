@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>疯狂星期X</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="/crazy/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header text-center">
+        <h1>疯狂星期计算</h1>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" class="form-control" id="number" placeholder="请输入数字">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="calculate()">计算</button>
+        <div id="result" class="mt-3"></div>
+        <button class="btn btn-seconadary btn-block" onclick="copyResult()">复制结果</button>
+      </div>
+    </div>
+  </div>
+  <script src="/crazy/script.js"></script>
+</body>
+
+</html>
