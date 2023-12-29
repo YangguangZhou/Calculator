@@ -28,6 +28,11 @@ body {
   background-color: #279cff;
 }
 
+.btn-secondary {
+  font-size: 1.2em;
+  background-color: #279cff;
+}
+
 #result {
   font-size: 1.5em;
   margin-top: 10px;
